@@ -26,6 +26,7 @@ let maxPage = 0;
 
 refs.formElem.addEventListener('submit', async e => {
   e.preventDefault();
+  hideLoadMoreButton();
   showLoader();
 
   userValue = e.target.elements['search-text'].value.trim();

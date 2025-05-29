@@ -40,6 +40,16 @@ export function LoadMoreGallery(images) {
   const markup = images.map(imageTemplate).join('\n');
   galleryElem.insertAdjacentHTML('beforeend', markup);
   lightbox.refresh();
+
+  // Плавне прокручування
+  const { height: cardHeight } = document
+    .querySelector('.gallery-item')
+    .getBoundingClientRect();
+
+  window.scrollBy({
+    top: cardHeight * 2,
+    behavior: 'smooth',
+  });
 }
 
 // ================= очищає вміст контейнера ====================
